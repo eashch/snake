@@ -30,7 +30,7 @@ class GameCore {
     #recordDisplays = null;
 
     constructor () {
-        this.loadRecord();
+        this.#loadRecord();
         this.#gameField = new GameField();
         
         this.#startWindow = document.querySelector(".div_start-window");
@@ -43,7 +43,7 @@ class GameCore {
 
         let startButton = document.querySelector(".button_start");
         startButton.addEventListener("click", (event) => {
-            this.startGame();
+            this.#startGame();
             event.stopPropagation();
         });
 
@@ -52,28 +52,28 @@ class GameCore {
         body.addEventListener("click", () => {
             if (this.#gameState !== GameStateEnum.pregamePause)
                 return;
-            this.switchGameState(GameStateEnum.game);
+            this.#switchGameState(GameStateEnum.game);
             this.#snake.startMovement();
-            this.gameStep();
+            this.#gameStep();
         });
 
         let restartButton = document.querySelector(".game-over__restart");
         restartButton.addEventListener("click", () => {
-            this.switchGameState(GameStateEnum.startScreen);
+            this.#switchGameState(GameStateEnum.startScreen);
         });
 
-        this.updateRecordDisplay();
-        this.switchGameState(GameStateEnum.startScreen);
+        this.#updateRecordDisplay();
+        this.#switchGameState(GameStateEnum.startScreen);
     }
 
-    startGame() {
+    #startGame() {
         if (!this.#gameField.getDimensions())
                 return;
         this.#timeDeltams = this.#timeDeltamsInitial;
 
         this.#score = 0;
-        this.updateScoreDisplay();
-        this.updateRecordDisplay();
+        this.#updateScoreDisplay();
+        this.#updateRecordDisplay();
         this.#gameField.createField();
 
         const middleCell = this.#gameField.getMiddleCell();
@@ -83,26 +83,26 @@ class GameCore {
                                 this.finishGame.bind(this),
                                 this.onAppleCollide.bind(this));
         this.#gameField.rollNewApple(this.#snake);
-        this.switchGameState(GameStateEnum.pregamePause);
+        this.#switchGameState(GameStateEnum.pregamePause);
     }
 
-    gameStep() {
+    #gameStep() {
         this.#timeoutID = setTimeout(() => {
             if (this.#gameState !== GameStateEnum.game)
                 return;
             this.#snake.makeMove();
             this.#snake.draw();
-            this.gameStep();
+            this.#gameStep();
         }, this.#timeDeltams);
     }
 
-    loadRecord() {
+    #loadRecord() {
         const recordSaved = localStorage.getItem("record");
         if (recordSaved != null)
             this.#record = recordSaved;
     }
 
-    isNewRecord() {
+    #isNewRecord() {
         if (this.#record >= this.#score)
             return false;
         this.#record = this.#score;
@@ -112,12 +112,12 @@ class GameCore {
 
     finishGame() {
         clearTimeout(this.#timeoutID);
-        this.switchGameState(GameStateEnum.gameOverScreen);
+        this.#switchGameState(GameStateEnum.gameOverScreen);
         this.#gameField.clearField();
         this.#snake.stopMovement();
         const scoreItem = document.querySelector(".game-over__score");
 
-        const isNewRecord = this.isNewRecord();
+        const isNewRecord = this.#isNewRecord();
         const isBlinking = scoreItem.classList.contains("blink");
         scoreItem.innerHTML = `${this.#score}${isNewRecord
                                         ? " (New record!)" : ""}`;
@@ -126,12 +126,12 @@ class GameCore {
         
         if (!isBlinking && isNewRecord)
             scoreItem.classList.add("blink");
-        this.updateRecordDisplay();
+        this.#updateRecordDisplay();
     }
 
     onAppleCollide () {
         this.#score++;
-        this.updateScoreDisplay();
+        this.#updateScoreDisplay();
         const applePlaced = this.#gameField.rollNewApple(this.#snake);
         if (!applePlaced) {
             this.finishGame();
@@ -139,16 +139,16 @@ class GameCore {
         this.#timeDeltams *= this.#timeDeltaSpeedUp;
     }
 
-    updateScoreDisplay() {
+    #updateScoreDisplay() {
         this.#scoreDisplay.innerHTML = `${this.#score}`;
     }
 
-    updateRecordDisplay() {
+    #updateRecordDisplay() {
         for (let item of this.#recordDisplays)
             item.innerHTML = `${this.#record}`;
     }
 
-    switchGameState (newState) {
+    #switchGameState (newState) {
         const setVisible = (item, isVisible, 
                             displayVisible = "flex") => {
             item.style.display = isVisible 

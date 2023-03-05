@@ -15,10 +15,10 @@ class GameField {
 
     constructor() {
         this.#container = document.querySelector(".div_game-field");
-        this.initInputs();
+        this.#initInputs();
     }
 
-    initInputs() {
+    #initInputs() {
         this.#inputWidth = document.querySelector(".input_width");
         this.#inputHeight = document.querySelector(".input_height");
         const widthSaved = localStorage.getItem("width");

@@ -61,16 +61,16 @@ class Snake {
 
     startMovement() {
         document.querySelector(".body").addEventListener("keydown", 
-                                    this.inputControl.bind(this));
+                                    this.#inputControl.bind(this));
         
     }
 
     stopMovement() {
         document.querySelector(".body").removeEventListener("keydown", 
-                                    this.inputControl);
+                                    this.#inputControl);
     }
 
-    inputControl(event) {
+    #inputControl(event) {
         if (this.#lockedTillNextStep)
             return;
 
