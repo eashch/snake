@@ -1,0 +1,2 @@
+
+const gameCore = new GameCore();

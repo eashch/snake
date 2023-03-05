@@ -1,0 +1,256 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.text {
+    font-family: 'DotGothic16', Helvetica, sans-serif; 
+    color: #324B02;
+}
+
+h1 {
+    font-size: 15vh;
+}
+
+h2 {
+    font-size: 5vh;
+}
+
+.button {
+    background-color: #99C605;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #324B02;
+    width: 200px;
+    height: 80px;
+    font-size: 5vh;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.button:focus {
+    outline: none;
+    color: #99C605;
+    background-color: #324B02;
+}
+
+.button:hover {
+    color: #99C605;
+    background-color: #324B02;
+}
+
+.input {
+    background-color: #99C605;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #324B02;
+    width: 60px;
+    height: 40px;
+    font-size: 5vh;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+.input:focus {
+    color: #99C605;
+    background-color: #324B02;
+}
+
+.body {
+    background-color: #99C605;
+}
+
+.window-regular {
+    background-color: #99C605;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    z-index: 10;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #324B02;
+    width: 90vh;
+    height: 90vh;
+    margin-left: -45vh;
+    margin-top: -45vh;
+}
+
+.div_start-window {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+.div_in-game {
+    background-color: transparent;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    display: none;
+}
+
+.div_global {
+    background-color: transparent;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 700px;
+    height: 700px;
+    margin-left: -350px;
+    margin-top: -350px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.div_dimensions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 70%;
+}
+
+.div_game-field {
+    display: none;
+    background-color: #99C605;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #324B02;
+    grid-gap: 0px;
+}
+
+.game-over {
+    display: none;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: #99C605;
+    background-image: none;
+}
+
+.cell_apple {
+    background-image: url("apple.svg");
+}
+
+.snake_head {
+    background-image: url("snake-head.svg");
+}
+
+.snake_body {
+    background-image: url("snake-segment.svg");
+}
+
+.snake_tail {
+    background-image: url("snake-tail.svg");
+}
+
+.text-tip {
+    display: none;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -webkit-animation: scaling-transform .5s ease-in-out alternate .5s infinite;
+            animation: scaling-transform .5s ease-in-out alternate .5s infinite;
+}
+
+@-webkit-keyframes scaling-transform {
+    100% {-webkit-transform: scale(1.2);transform: scale(1.2);}
+}
+
+@keyframes scaling-transform {
+    100% {-webkit-transform: scale(1.2);transform: scale(1.2);}
+}
+
+.in-game-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 70%;
+}
+
+.record-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 20px;
+}
+
+.blink {
+    -webkit-animation: blinker 1s step-start infinite;
+            animation: blinker 1s step-start infinite;
+}
+  
+@-webkit-keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+  
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}

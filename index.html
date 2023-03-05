@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="./src/position.js"></script>
+        <script src="./src/cell.js"></script>
+        <script src="./src/snake.js"></script>
+        <script src="./src/game-field.js"></script>
+        <script src="./src/game-core.js"></script>
+        
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" type="text/css" href="src/styles.css" /> 
+    </head>
+    <body class="body">
+        <div class="div_global">
+            <div class="window-regular div_start-window">
+                <h1 class="text">SNAKE</h1>
+                <div class="record-container">
+                    <h2 class="text">Record: </h2>
+                    <h2 class="text record"></h2>
+                </div>
+                <div class="div_dimensions">
+                    <h2 class="text">Width: </h2>
+                    <input class="text input input_width" type="number">
+                    <h2 class="text">Height: </h2>
+                    <input class="text input input_height" type="number">
+                </div>
+                <button class="button text button_start">Start</button>
+            </div>
+            <div class="window-regular div_in-game">
+                <div class="in-game-header">
+                    <h2 class="text">Score: </h2>
+                    <h2 class="text score"></h2>
+                    <h2 class="text">Record: </h2>
+                    <h2 class="text record"></h2>
+                </div>
+                <div class="div_game-field"></div>
+                <div class="text-tip">
+                    <h2 class="text">Click to start!</h2>
+                </div>
+            </div>
+            <div class="window-regular game-over">
+                <h1 class="text">GAME OVER</h1>
+                <h2 class="text">Your score</h2>
+                <h2 class="text game-over__score"></h2>
+                <button class="button text game-over__restart">Restart</button>
+            </div>
+            
+        </div>
+        <script src="src/script.js"></script>
+    </body>
+</html>
